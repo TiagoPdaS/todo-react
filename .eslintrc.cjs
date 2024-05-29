@@ -8,10 +8,11 @@ module.exports = {
     'plugin:react-hooks/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module', jsx: true, },
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh' ,  "react"],
   rules: {
+    'react/react-in-jsx-scope': 'off', 
     'react/jsx-no-target-blank': 'off',
     'react-refresh/only-export-components': [
       'warn',

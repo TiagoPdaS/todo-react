@@ -1,6 +1,7 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-const TodoForm = ({ addTodo}) => {
+const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
 
@@ -14,25 +15,28 @@ const TodoForm = ({ addTodo}) => {
 
   return (
     <div className="todo-form">
-      <h2>Criar Tarefa:</h2>
+      <h2>New Task:</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Digite o texto"
+          placeholder="Enter text Here"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value="">Selecione uma Categoria</option>
-          <option value="Trabalho">Trabalho</option>
-          <option value="Pessoal">Pessoal</option>
-          <option value="Estudos">Estudos</option>
+          <option value="">Select a Category</option>
+          <option value="Work">Work</option>
+          <option value="Private">Private</option>
+          <option value="Studies">Studies</option>
         </select>
-        <button type="submit">Criar Tarefa</button>
+        <button type="submit">Create Task</button>
       </form>
     </div>
   );
+};
+
+TodoForm.propTypes = {
+  addTodo: PropTypes.func.isRequired,
 };
 
 export default TodoForm;
