@@ -1,12 +1,12 @@
 
-const Filter = () => {
+const Filter = ({ filter, setFilter, setSort }) => {
   return (
     <div className="filter">
         <h2>Filter</h2>
         <div className="filter-options">
             <div>
                 <p>Status:</p>
-                <select>
+                <select value={filter} onChange={(e) => setFilter(e.target.value)}>
                     <option value="All">All</option>
                     <option value="Completed">Completed</option>
                     <option value="Incomplete">Incomplete</option>
@@ -14,8 +14,8 @@ const Filter = () => {
             </div>
             <div>
                 <p>Priority:</p>
-                <button>Asc</button>
-                <button>Desc</button>
+                <button onClick={() => setSort("Asc")}>Asc</button>
+                <button onClick={() => setSort("Desc")}>Desc</button>
             </div>
         </div>
       
